@@ -1,23 +1,25 @@
 #!/usr/bin/env python
-# spoj 1846. Project File Dependencies
+
 
 #reading the file
-filename = raw_input()
+filename = 'input.txt'
 file = open(filename, "r")
 
 task, rule = file.readline().split()
-print task
-print rule 
+print task, rule
 
+#converting the data type of the input to integers
 task = int(task)
 rule = int(rule)
 idegree = {}
 for i in range(1, task + 1):
     idegree[i] = 0
+    #print idegree
 itask = {}
 while rule:
     rule -= 1
     tmpLst = map(int, file.readline().split())
+    #print tmpLst
     idegree[tmpLst[0]] = tmpLst[1]
     for i in range(2, len(tmpLst)):
         if tmpLst[i] not in itask:
